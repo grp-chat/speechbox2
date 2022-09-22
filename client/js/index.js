@@ -75,6 +75,31 @@ sock.emit('newuser', nickname);
 
 //LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 
+//CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+class fixedCommand {
+    constructor (prefix, sockEmitFlag) {
+        this.prefix = prefix; 
+        this.sockEmitFlag = sockEmitFlag;
+    }
+
+    executeCommand(message) {
+        //var extractNickname = message.slice(4).replace(/[^A-Z]+/g, "");
+        if (nickname != "TCR") {return}
+        if (message.slice(0, this.prefix.length) != this.prefix) {return}
+        //if (studentsArr.includes(extractNickname) === false) {return}
+        
+        sock.emit(this.sockEmitFlag);
+    }
+}
+
+const allCommands = [
+    
+    new fixedCommand("TCR: clear", 'clearAllResults')
+    
+];
+//CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+
 function createChatDivs() {
     const chatSec = document.getElementById("chat");
     var chatDiv = document.createElement("div");
@@ -155,10 +180,18 @@ function appendMessage(message) {
     const sliceMessage = message.slice(0, 138); 
     updateSpeechBox(sliceMessage, extractNickname);
 
-
-    // allCommands.forEach((command) => {
-    //     command.executeCommand(message);
-    // });
+    allCommands.forEach((command) => {
+        command.executeCommand(message);
+    });
+}
+function appendResult(result, playerId) {
+    if (!result) {return;}
+    
+    containerArr.forEach(container => {
+        if (playerId === container.playerId) {
+            container.nextElementSibling.querySelector(".wrapper .number").innerHTML = result;
+        }
+    });
 }
 
 function getTheCorrectContainer(extractNickname) {
@@ -364,9 +397,17 @@ function revealOneCharacter(list) {
 }
 
 sock.on('chat-to-clients', data => {
-    const message = data;
+    const message = data.message;
+    const getResult = data.getResult;
+    const playerId = data.playerId;
     appendMessage(message);
+    appendResult(getResult, playerId);
 
+});
+sock.on('clearAllResults', () => {
+    containerArr.forEach(container => {
+        container.nextElementSibling.querySelector(".wrapper .number").innerHTML = "0.000";
+    });
 });
 
 //Kick it off

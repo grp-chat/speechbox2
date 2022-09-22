@@ -19,12 +19,41 @@ console.log("Server listening at " + PORT);
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
+function findindex(str) {
+    var num = /\d/;
+    var nums = str.match(num);
+    return str.indexOf(nums);
+}
+function extractFloat(str) {
+    const regex = /\d+((.|,)\d+)?/;
+    const regex2 = (/[\d,]+\.\d+/)
+    const isThisTheFloat = str.match(regex);
+    const isThisTheFloat2 = str.match(regex2);
+    
+    if (!isThisTheFloat2 && !isThisTheFloat) {return;}
+    
+
+    if (isThisTheFloat[0].length > 8) {return;}
+    
+    if (!isThisTheFloat2) {return isThisTheFloat[0];}
+    
+
+    if (isThisTheFloat2[0] === "999.999" || isThisTheFloat2[0].length === 6) {
+        return isThisTheFloat2[0];
+    } else {
+        return isThisTheFloat[0];
+    }
+}
+
 io.sockets.on('connection', function (sock) {
 
     sock.on('newuser', (data) => {
 
         sock.id = data; //"TCR"
-        io.emit('chat-to-clients', data + " connected");
+        const message = data + " connected";
+        const getResult = null;
+        const playerId = data;
+        io.emit('chat-to-clients', { message, getResult, playerId });
         
         // sock.on('keyPress', function (data) {
 
@@ -61,8 +90,15 @@ io.sockets.on('connection', function (sock) {
     });
 
     sock.on('chat-to-server', (data) => {
-        io.emit('chat-to-clients', data);
+        // console.log(findindex(data));
+        const message = data;
+        const getResult = extractFloat(data);
+        const playerId = message.slice(0, 4).replace(/[^A-Z]+/g, "");
+        io.emit('chat-to-clients', { message, getResult, playerId });
     });
     
+    sock.on('clearAllResults', () => {
+        io.emit('clearAllResults');
+    });
 
 });
