@@ -43,27 +43,54 @@
     transform: translateY(80%); 
  }
 
+
+
+ .wrapper {
+    display: flex;
+ }
+ /* ---------------------------------------------------------------------------------------------------- */
  .emoji {
     flex:1;
     font-size: 30px;
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 5px;
-    
  }
-
- .wrapper {
-    display: flex;
- }
-
  .nametag {
     flex:1;
     font-size: 30px;
     margin-top: 10px;
-    margin-left: 420px;
+    margin-left: 35px;
     margin-bottom: 5px;
     width: 50px;
  }
+ .time {
+    flex:1;
+    font-size: 30px;
+    margin-left: 0px;
+    margin-top: 10px;
+ }
+ .number {
+    flex:1;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 28px;
+ }
+ .life {
+    flex:1;
+    font-size: 15px;
+    margin-left: 230px;
+    margin-top: 28px;
+ }
+ .heart {
+    flex:1;
+    font-size: 25px;
+    margin-left: -20px;
+    margin-top: 10px;
+    /* color: red; */
+ }
+ 
+ /* ---------------------------------------------------------------------------------------------------- */
 
  .grid {
     display: grid;
