@@ -1,0 +1,86 @@
+.text span {
+    opacity: 0;
+ }
+ .text span.revealed {
+    opacity: 1;
+ }
+ .text span.green {
+    color: #27ae60;
+ }
+ .text span.red {
+    color: #ff0000;
+ }
+ 
+ 
+ /* Demo styles */
+ body {
+    background: #3498db;
+    padding: 0em;
+    font-family: 'Sora', monospace;
+    transform: scale(0.9);
+   transform-origin: 0 0;
+ }
+
+ .text {
+    font-size: 1.2vw;
+    word-spacing: 0.2em;
+    margin: 0 0 0 20px;
+    background: #fff;
+    padding: 0.5em;
+    border-bottom: 1vw solid #0e6dad;
+    position:relative;
+    line-height: 1.2em;
+    width: 480px;
+    height: 57px;
+    word-wrap: break-word;
+    /* overflow-y: hidden; */
+ }
+ .corner {
+    position:absolute;
+    width: 2.5vw;
+    right:1.5vw;
+    bottom:0;
+    transform: translateY(80%); 
+ }
+
+ .emoji {
+    flex:1;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    
+ }
+
+ .wrapper {
+    display: flex;
+ }
+
+ .nametag {
+    flex:1;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 420px;
+    margin-bottom: 5px;
+    width: 50px;
+ }
+
+ .grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 950px;
+  }
+
+  .chat {
+    width: 320px;
+    height: 320px;
+    border: 1px solid white;
+    color: wheat;
+    position: absolute;
+    top: 380px;
+    left: 1080px;
+}
+
+
+ 
