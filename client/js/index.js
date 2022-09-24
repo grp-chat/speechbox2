@@ -248,13 +248,13 @@ const containerArr = [
     container9, container10
 ]
 
-// container1.playerId = "LK";
-// container2.playerId = "LXR";
-// container3.playerId = "SZF";
-// container4.playerId = "JHA";
-// container5.playerId = "JL";
-// container6.playerId = "JV";
-// container7.playerId = "H";
+container1.playerId = "LK";
+container2.playerId = "LXR";
+container3.playerId = "SZF";
+container4.playerId = "JHA";
+container5.playerId = "JL";
+container6.playerId = "JV";
+container7.playerId = "H";
 // container1.playerId = "JX";
 // container2.playerId = "JZ";
 // container3.playerId = "TWN";
@@ -264,15 +264,15 @@ const containerArr = [
 // container7.playerId = "CUR";
 // container8.playerId = "RYD";
 // container9.playerId = "CT";
-container1.playerId = "LOK";
-container2.playerId = "CJH";
-container3.playerId = "CED";
-container4.playerId = "KX";
-container5.playerId = "KN";
-container6.playerId = "TJY";
-container7.playerId = "JT";
-container8.playerId = "KSY";
-container9.playerId = "LSH";
+// container1.playerId = "LOK";
+// container2.playerId = "CJH";
+// container3.playerId = "CED";
+// container4.playerId = "KX";
+// container5.playerId = "KN";
+// container6.playerId = "TJY";
+// container7.playerId = "JT";
+// container8.playerId = "KSY";
+// container9.playerId = "LSH";
 container10.playerId = "TCR";
 
 const emojis = {
