@@ -271,8 +271,8 @@ container7.playerId = "H";
 // container5.playerId = "KN";
 // container6.playerId = "TJY";
 // container7.playerId = "JT";
-// container8.playerId = "KSY";
-// container9.playerId = "LSH";
+container8.playerId = "KSY";
+container9.playerId = "LSH";
 container10.playerId = "TCR";
 
 const emojis = {
