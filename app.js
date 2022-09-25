@@ -35,7 +35,11 @@ function extractFloat(str) {
 
     if (isThisTheFloat[0].length > 8) {return;}
     
-    if (!isThisTheFloat2) {return isThisTheFloat[0];}
+    if (!isThisTheFloat2) {
+        if(isThisTheFloat[0].length > 1) {return isThisTheFloat[0];}
+    } else {
+        return;
+    }
     
 
     if (isThisTheFloat2[0] === "999.999" || isThisTheFloat2[0].length === 6) {
