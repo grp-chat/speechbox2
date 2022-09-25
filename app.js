@@ -32,16 +32,13 @@ function extractFloat(str) {
     
     if (!isThisTheFloat2 && !isThisTheFloat) {return;}
     
-
-    if (isThisTheFloat[0].length > 8) {return;}
+    if (isThisTheFloat[0].length > 7) {return;}
     
     if (!isThisTheFloat2) {
-        if(isThisTheFloat[0].length > 1) {return isThisTheFloat[0];}
-    } else {
-        return;
+        if(isThisTheFloat[0].length < 2) {return}
+        return isThisTheFloat[0];
     }
     
-
     if (isThisTheFloat2[0] === "999.999" || isThisTheFloat2[0].length === 6) {
         return isThisTheFloat2[0];
     } else {
@@ -95,8 +92,9 @@ io.sockets.on('connection', function (sock) {
 
     sock.on('chat-to-server', (data) => {
         // console.log(findindex(data));
-        const message = data;
+        //const message0 = data;
         const getResult = extractFloat(data);
+        const message = data.replace(getResult, "{update result}");
         const playerId = message.slice(0, 4).replace(/[^A-Z]+/g, "");
         io.emit('chat-to-clients', { message, getResult, playerId });
     });
