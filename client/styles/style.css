@@ -20,7 +20,8 @@ body {
    background: #3498db;
    padding: 0em;
    font-family: 'Sora', monospace;
-   transform: scale(0.9);
+   margin-bottom: 10px;
+   transform: scale(0.88);
    transform-origin: 0 0;
 }
 
