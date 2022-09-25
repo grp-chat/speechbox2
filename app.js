@@ -94,8 +94,8 @@ io.sockets.on('connection', function (sock) {
         // console.log(findindex(data));
         //const message0 = data;
         const getResult = extractFloat(data);
-        const message = data.replace(getResult, "{update result}");
         const playerId = message.slice(0, 4).replace(/[^A-Z]+/g, "");
+        const message = data.replace(getResult, "{update result}");
         io.emit('chat-to-clients', { message, getResult, playerId });
     });
     
